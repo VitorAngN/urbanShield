@@ -78,7 +78,7 @@ export default function AIDashboard() {
           </motion.div>
           <div>
             <h1 className="ai-title">ENGINE COGNITIVO</h1>
-            <p style={{ margin: 0, fontSize: '12px', color: '#64748b', fontFamily: 'Orbitron', letterSpacing: 2 }}>SISTEMA IA · CORNÉLIO PROCÓPIO PD</p>
+            <p style={{ margin: 0, fontSize: '12px', color: '#64748b', fontFamily: 'Orbitron', letterSpacing: 2 }}>SISTEMA IA · CORNELIO PROCOPIO PD</p>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>

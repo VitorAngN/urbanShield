@@ -98,7 +98,7 @@ export default function CitizenDashboard() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '48px', maxWidth: '1100px', margin: '0 auto 48px auto' }}>
         <h1 style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: 0, fontFamily: 'Orbitron', fontSize: '20px' }}>
           <Navigation color="#3b82f6" size={24} />
-          SEGURANÇA_CIDADÃ
+          URBAN_SHIELD
         </h1>
         <button 
           onClick={() => navigate('/login')}

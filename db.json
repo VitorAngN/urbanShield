@@ -47,6 +47,18 @@
       "source": "App Cidadão",
       "validatedBy": "Anônimo",
       "id": 1777152910250
+    },
+    {
+      "title": "Atividade Suspeita",
+      "desc": "xvxvxc",
+      "type": "warning",
+      "time": "19:14:43",
+      "lat": -23.184990112874377,
+      "lng": -50.64333703229076,
+      "confidence": 65,
+      "source": "App Cidadão",
+      "validatedBy": "Anônimo",
+      "id": 1777155283358
     }
   ],
   "partners": [
@@ -67,7 +79,26 @@
       "type": "agent"
     }
   ],
-  "dispatches": [],
+  "dispatches": [
+    {
+      "unitId": "VTR-09",
+      "incident": "Denúncia Cidadã #001",
+      "eta": "2 min",
+      "dist": "0.7 km",
+      "arrivedAt": "19:15:57",
+      "date": "25/04/2026",
+      "id": 1
+    },
+    {
+      "unitId": "VTR-09",
+      "incident": "Denúncia Cidadã #001",
+      "eta": "2 min",
+      "dist": "0.7 km",
+      "arrivedAt": "19:24:48",
+      "date": "25/04/2026",
+      "id": 2
+    }
+  ],
   "alerts": [
     {
       "id": 1,
