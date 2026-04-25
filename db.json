@@ -1,0 +1,79 @@
+{
+  "incidents": [
+    {
+      "id": 1,
+      "type": "critical",
+      "title": "Roubo em Progresso",
+      "desc": "Indivíduos armados relatados perto da farmácia central.",
+      "time": "17:40",
+      "lat": -23.1815,
+      "lng": -50.6472,
+      "confidence": 98,
+      "source": "WhatsApp API",
+      "validatedBy": "Parceiro: Câmera Loja 04"
+    },
+    {
+      "id": 2,
+      "type": "warning",
+      "title": "Anomalia Detectada",
+      "desc": "Movimentação atípica de veículos fora do horário comercial.",
+      "time": "17:25",
+      "lat": -23.1855,
+      "lng": -50.644,
+      "confidence": 72,
+      "source": "IA Engine",
+      "validatedBy": "Pendente"
+    },
+    {
+      "title": "Atividade Suspeita",
+      "desc": "DCHFGGGHKJ",
+      "type": "warning",
+      "time": "18:29:49",
+      "lat": -23.184175613887135,
+      "lng": -50.64893627330376,
+      "confidence": 65,
+      "source": "App Cidadão",
+      "validatedBy": "Anônimo",
+      "id": 1777152589776
+    },
+    {
+      "title": "Atividade Suspeita",
+      "desc": "asdasd",
+      "type": "warning",
+      "time": "18:35:10",
+      "lat": -23.181014846820624,
+      "lng": -50.646900987328195,
+      "confidence": 65,
+      "source": "App Cidadão",
+      "validatedBy": "Anônimo",
+      "id": 1777152910250
+    }
+  ],
+  "partners": [
+    {
+      "id": "CAM-01",
+      "name": "Supermercado Central (Externa)",
+      "lat": -23.1822,
+      "lng": -50.646,
+      "status": "online",
+      "type": "camera"
+    },
+    {
+      "id": "VIG-04",
+      "name": "Ronda Noturna (Jd. Primavera)",
+      "lat": -23.1848,
+      "lng": -50.6505,
+      "status": "online",
+      "type": "agent"
+    }
+  ],
+  "dispatches": [],
+  "alerts": [
+    {
+      "id": 1,
+      "zone": "Centro",
+      "level": "Atenção Elevada",
+      "message": "Índice de furtos 15% acima da média na última hora. Fique atento a pertences."
+    }
+  ]
+}
