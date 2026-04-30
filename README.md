@@ -2,6 +2,28 @@
 
 Sistema web de segurança pública com mapa em tempo real, despacho inteligente de viaturas via IA, banco de dados de ocorrências e canal de denúncia cidadã.
 
+## Interface do Sistema
+
+Para que estas imagens apareçam no seu GitHub, crie uma pasta chamada `docs` na raiz deste projeto e salve os seus prints lá com os seguintes nomes exatos:
+
+### Command Core - Painel Tático (Polícia)
+![Painel Tático da Polícia](docs/police-dashboard.png)
+
+### Portal do Cidadão e Alertas Locais
+![Tela do Cidadão](docs/citizen-alert.png)
+
+### Formulário de Criação de Relato
+![Criar Relato](docs/citizen-report.png)
+
+### Autenticação Multi-Tenant
+![Tela de Login](docs/login.png)
+
+### Painel Estratégico Executivo (Prefeito)
+![Painel do Prefeito](docs/mayor-dashboard.png)
+
+### Engine Cognitivo (Sistema IA)
+![Sistema IA](docs/ai-engine.png)
+
 ## Stack
 
 - React 19 + TypeScript + Vite
