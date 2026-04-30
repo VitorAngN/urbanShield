@@ -4,8 +4,6 @@ Sistema web de segurança pública com mapa em tempo real, despacho inteligente 
 
 ## Interface do Sistema
 
-Para que estas imagens apareçam no seu GitHub, crie uma pasta chamada `docs` na raiz deste projeto e salve os seus prints lá com os seguintes nomes exatos:
-
 ### Command Core - Painel Tático (Polícia)
 ![Painel Tático da Polícia](docs/police-dashboard.png)
 
