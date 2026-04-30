@@ -1,6 +1,6 @@
 # Plataforma Integrada de Segurança Pública
 
-Sistema web de segurança pública com mapa em tempo real, despacho inteligente de viaturas via IA, banco de dados de ocorrências e canal de denúncia cidadã.
+Sistema web de segurança pública com mapa em tempo real, cálculo de rotas para despacho de viaturas, banco de dados de ocorrências e canal de denúncia cidadã.
 
 ## Interface do Sistema
 
@@ -19,8 +19,8 @@ Sistema web de segurança pública com mapa em tempo real, despacho inteligente 
 ### Painel Estratégico Executivo (Prefeito)
 ![Painel do Prefeito](docs/mayor-dashboard.png)
 
-### Engine Cognitivo (Sistema IA)
-![Sistema IA](docs/ai-engine.png)
+### Dashboard de Análise de Dados
+![Dashboard de Análise de Dados](docs/ai-engine.png)
 
 ## Stack
 
@@ -82,7 +82,7 @@ src/
     Police/        - Dashboard operacional da polícia com mapa e despacho IA
     Citizen/       - App do cidadão para denúncias anônimas
     Mayor/         - Painel estratégico do prefeito com gráficos
-    AI/            - Engine cognitivo com modelos preditivos e otimizador de despacho
+    Analytics/     - Módulo de análise de dados e relatórios gerenciais
 db.json            - Banco de dados REST (incidents, partners, alerts, dispatches)
 .env.example       - Modelo de variáveis de ambiente
 ```
@@ -94,7 +94,7 @@ Na tela inicial, selecione o perfil desejado:
 - Policial: acesso ao mapa tático com viaturas, ocorrências e despacho via IA
 - Cidadão: formulário de denúncia com foto/video e alertas em tempo real
 - Prefeito: painel estratégico com métricas e gráficos históricos
-- Sist. IA: engine cognitivo com modelos de ML, scores de risco e otimizador de despacho
+- Analista: visualização de dados operacionais, estatísticas de atendimento e métricas de performance
 
 ## Funcionalidades principais
 
@@ -103,7 +103,7 @@ Na tela inicial, selecione o perfil desejado:
 - Viaturas posicionadas em coordenadas reais de Cornélio Procópio, PR
 - Clique em uma viatura para ver sua rota de patrulha
 - Clique em uma ocorrência para abrir o painel de inteligência
-- Botão Despacho IA: seleciona a viatura mais próxima via cálculo de distância geodésica (Haversine), traça a rota real pelas ruas via OSRM e anima o deslocamento em tempo real
+- Botão Despacho de Viatura: seleciona a viatura mais próxima via cálculo de distância geodésica (Haversine), traça a rota real pelas ruas via OSRM e anima o deslocamento em tempo real
 - Barra de progresso mostra o percentual do trajeto concluído
 - Botão Confirmar Chegada registra o despacho no banco de dados e envia notificação ao cidadão
 - Marcadores roxos representam parceiros validadores (câmeras e vigilantes cadastrados)
@@ -126,13 +126,12 @@ O arquivo `db.json` é servido pelo JSON Server na porta 3001 e expõe os endpoi
 - GET /alerts - Alertas de risco por zona
 - POST /dispatches - Histórico de despachos confirmados
 
-### Engine de IA
+### Análise de Dados Operacionais
 
-- Modulo Preditivo: forecasting de ocorrências por zona e horário
-- Classificador NLP: categorização automática de denúncias em texto livre
-- Detector de Anomalias: análise de padrões suspeitos em tempo real
-- Motor de Risco: score de periculosidade por região
-- Otimizador de Despacho: calcula qual viatura deve atender cada ocorrência com base em ETA real
+- Visualização Estatística: gráficos de ocorrências por zona e horário
+- Categorização: filtros de denúncias e incidentes registrados
+- Métricas de Desempenho: análise de tempo de resposta das viaturas
+- Relatórios: consolidação de dados de segurança para tomada de decisão estratégica
 
 ## Variáveis de ambiente
 
