@@ -1,148 +1,68 @@
-# Plataforma Integrada de Segurança Pública
+# UrbanShield — Plataforma Integrada de Segurança Pública
 
-Sistema web de segurança pública com mapa em tempo real, cálculo de rotas para despacho de viaturas, banco de dados de ocorrências e canal de denúncia cidadã.
+<p>
+  <img src="https://img.shields.io/badge/Status-Concluído-success?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Google_Maps_API-4285F4?style=flat-square&logo=google-maps&logoColor=white" alt="Google Maps" />
+  <img src="https://img.shields.io/badge/OSRM-Roteamento_Real-green?style=flat-square" alt="OSRM" />
+</p>
 
-## Interface do Sistema
+Dashboard interativo para monitoramento urbano em tempo real, com visualização de ocorrências em mapa, cálculo de proximidade entre unidades e despacho inteligente de viaturas.
 
-### Command Core - Painel Tático (Polícia)
-![Painel Tático da Polícia](docs/police-dashboard.png)
+---
 
-### Portal do Cidadão e Alertas Locais
-![Tela do Cidadão](docs/citizen-alert.png)
+## Funcionalidades
 
-### Formulário de Criação de Relato
-![Criar Relato](docs/citizen-report.png)
+- **Mapa ao Vivo** com marcadores de ocorrências e localização de unidades via Google Maps API
+- **Cálculo de Proximidade (Haversine)** para identificar a viatura mais próxima de uma ocorrência em tempo real
+- **Roteamento Real de Viaturas** integrado com OSRM (Open Source Routing Machine) — rotas reais por ruas, não apenas linha reta
+- **Despacho de Viaturas** com atualização de status em tempo real no mapa
+- **Canal de Denúncia Cidadã** para registro de ocorrências com tipo, coordenadas e descrição
 
-### Autenticação Multi-Tenant
-![Tela de Login](docs/login.png)
+---
 
-### Painel Estratégico Executivo (Prefeito)
-![Painel do Prefeito](docs/mayor-dashboard.png)
+## Decisões Técnicas
 
-### Dashboard de Análise de Dados
-![Dashboard de Análise de Dados](docs/ai-engine.png)
+### Por que Haversine?
+O cálculo de qual unidade está mais próxima de uma ocorrência usa a fórmula de Haversine, que calcula a distância entre dois pontos em uma esfera (a Terra). Isso é mais preciso que uma distância euclidiana simples (que ignora a curvatura do planeta) e muito mais rápido do que fazer uma chamada de API de roteamento para cada par de unidades.
+
+### Por que OSRM?
+Para traçar a rota da viatura despachada, usamos o OSRM ao invés da Google Directions API. O OSRM é open-source, sem custo por requisição e pode ser auto-hospedado, o que é essencial para sistemas públicos com alto volume de dados.
+
+---
 
 ## Stack
 
-- React 19 + TypeScript + Vite
-- Google Maps Platform (Maps JavaScript API)
-- OSRM (Open Source Routing Machine) para roteamento real gratuito
-- JSON Server como backend REST simulado
-- Framer Motion para animações
-- Recharts para gráficos no painel do prefeito
-
-## Pré-requisitos
-
-- Node.js 18+
-- npm 9+
-- Chave de API do Google Maps Platform com as seguintes APIs habilitadas no console:
-  - Maps JavaScript API
-
-## Configuração inicial
-
-1. Clone o repositório:
-
-```
-git clone https://github.com/seu-usuario/public-security-system.git
-cd public-security-system
-```
-
-2. Instale as dependências:
-
-```
-npm install
-```
-
-3. Configure as variáveis de ambiente. Copie o arquivo de exemplo e preencha com sua chave real:
-
-```
-copy .env.example .env
-```
-
-Abra o arquivo `.env` e substitua o placeholder pela sua chave do Google Maps:
-
-```
-VITE_MAPS_KEY=sua_chave_aqui
-```
-
-4. Inicie o servidor de desenvolvimento (sobe o frontend Vite e o banco de dados JSON Server simultaneamente):
-
-```
-npm run dev
-```
-
-O frontend estará disponível em `http://localhost:5174` e a API REST em `http://localhost:3001`.
-
-## Estrutura do projeto
-
-```
-src/
-  pages/
-    Login/         - Tela de seleção de perfil
-    Police/        - Dashboard operacional da polícia com mapa e despacho IA
-    Citizen/       - App do cidadão para denúncias anônimas
-    Mayor/         - Painel estratégico do prefeito com gráficos
-    Analytics/     - Módulo de análise de dados e relatórios gerenciais
-db.json            - Banco de dados REST (incidents, partners, alerts, dispatches)
-.env.example       - Modelo de variáveis de ambiente
-```
-
-## Perfis de acesso
-
-Na tela inicial, selecione o perfil desejado:
-
-- Policial: acesso ao mapa tático com viaturas, ocorrências e despacho via IA
-- Cidadão: formulário de denúncia com foto/video e alertas em tempo real
-- Prefeito: painel estratégico com métricas e gráficos históricos
-- Analista: visualização de dados operacionais, estatísticas de atendimento e métricas de performance
-
-## Funcionalidades principais
-
-### Mapa Tático (Policial)
-
-- Viaturas posicionadas em coordenadas reais de Cornélio Procópio, PR
-- Clique em uma viatura para ver sua rota de patrulha
-- Clique em uma ocorrência para abrir o painel de inteligência
-- Botão Despacho de Viatura: seleciona a viatura mais próxima via cálculo de distância geodésica (Haversine), traça a rota real pelas ruas via OSRM e anima o deslocamento em tempo real
-- Barra de progresso mostra o percentual do trajeto concluído
-- Botão Confirmar Chegada registra o despacho no banco de dados e envia notificação ao cidadão
-- Marcadores roxos representam parceiros validadores (câmeras e vigilantes cadastrados)
-- Marcadores verdes representam denúncias cidadãs recebidas
-
-### Denúncia Cidadã
-
-- Selecione o tipo de ocorrência e descreva o que está acontecendo
-- Anexe foto ou video diretamente da câmera ou galeria
-- Opção de envio anônimo (reduz score de confiança, mas preserva privacidade)
-- Denúncia aparece no mapa da polícia em até 3 segundos
-- Notificação push aparece na tela do cidadão quando a viatura confirma chegada ao local
-
-### Banco de Dados
-
-O arquivo `db.json` é servido pelo JSON Server na porta 3001 e expõe os endpoints:
-
-- GET/POST /incidents - Ocorrências
-- GET /partners - Parceiros validadores
-- GET /alerts - Alertas de risco por zona
-- POST /dispatches - Histórico de despachos confirmados
-
-### Análise de Dados Operacionais
-
-- Visualização Estatística: gráficos de ocorrências por zona e horário
-- Categorização: filtros de denúncias e incidentes registrados
-- Métricas de Desempenho: análise de tempo de resposta das viaturas
-- Relatórios: consolidação de dados de segurança para tomada de decisão estratégica
-
-## Variáveis de ambiente
-
-| Variável | Descrição |
+| Camada | Tecnologia |
 |---|---|
-| VITE_MAPS_KEY | Chave da Google Maps JavaScript API |
+| Frontend | React 18, TypeScript, CSS Modules |
+| Mapas | Google Maps JavaScript API |
+| Roteamento | OSRM (Open Source Routing Machine) |
+| Cálculo de Distância | Haversine (implementação própria) |
 
-## Observações
+---
 
-O arquivo `.env` está listado no `.gitignore` e nunca será enviado ao repositório. Nunca commite sua chave de API diretamente no código fonte.
+## Como Executar
 
-O roteamento de viaturas utiliza a API pública do OSRM (router.project-osrm.org), que é gratuita e não requer autenticação. Em produção, recomenda-se hospedar uma instância própria do OSRM.
+Você precisa de uma **chave de API do Google Maps** (Google Cloud Console, com permissão para Maps JavaScript API).
 
-O JSON Server é uma solução de prototipagem. Em produção, substitua por uma API Node.js/Express ou Firebase com autenticação adequada.
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/VitorAngN/urbanShield.git
+cd urbanShield
+
+# 2. Instalar dependências
+npm install
+
+# 3. Configurar chave de API
+# Crie um arquivo .env na raiz:
+# REACT_APP_GOOGLE_MAPS_KEY=SUA_CHAVE_AQUI
+
+# 4. Executar
+npm start
+```
+
+Acesse em `http://localhost:3000`.
+
+<img src="https://komarev.com/ghpvc/?username=VitorAngN-urbanShield" width="1" height="1" alt="" />
