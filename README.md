@@ -43,8 +43,8 @@ Sistema web de segurança pública com mapa em tempo real, cálculo de rotas par
 1. Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/public-security-system.git
-cd public-security-system
+git clone https://github.com/VitorAngN/urbanShield.git
+cd urbanShield
 ```
 
 2. Instale as dependências:
@@ -82,7 +82,7 @@ src/
     Police/        - Dashboard operacional da polícia com mapa e despacho IA
     Citizen/       - App do cidadão para denúncias anônimas
     Mayor/         - Painel estratégico do prefeito com gráficos
-    Analytics/     - Módulo de análise de dados e relatórios gerenciais
+    AI/            - Módulo de análise de dados e relatórios gerenciais
 db.json            - Banco de dados REST (incidents, partners, alerts, dispatches)
 .env.example       - Modelo de variáveis de ambiente
 ```
